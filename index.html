@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Online Assentials</title>
+
+<link rel="stylesheet" href="style.css" />
+
+<!-- EmailJS library -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("K050wx49i_RQzr5oT");
+  })();
+</script>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .app { max-width: 500px; margin: auto; }
+    .hidden { display: none; }
+    .btn { display: block; margin: 8px 0; padding: 10px; cursor: pointer; }
+    input[type="text"], input[type="email"] { width: 100%; padding: 8px; margin: 5px 0; }
+    #start-btn { margin-top: 10px; }
+</style>
+</head>
+<body> 
+<div class="app">
+
+    <!-- User Info Form -->
+    <div id="user-form">
+        <h1>Enter Your Details</h1>
+        <label>Name:</label>
+        <input type="text" id="user-name" placeholder="Your name" required>
+        <label>Email:</label>
+        <input type="email" id="user-email" placeholder="Your email" required>
+        <button id="start-btn" class="btn">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quiz-section" class="hidden">
+        <h1>Computer Essentials</h1>
+        <div class="quiz">
+            <h2 id="question">Question goes here</h2>
+            <div id="answers-buttons"></div>
+            <button id="next-btn" style="display:none;">Next</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    "question": "What does WWW stand for?",
+    "answers": [
+      { "text": "World Wide Web", "correct": true },
+      { "text": "Wireless Web Wide", "correct": false },
+      { "text": "Wide Web World", "correct": false },
+      { "text": "Web World Window", "correct": false }
+    ]
+  },
+  {
+    "question": "What is the difference between the Internet and the WWW?",
+    "answers": [
+      { "text": "The Internet is the network infrastructure; the WWW is a service on it.", "correct": true },
+      { "text": "They are exactly the same.", "correct": false },
+      { "text": "WWW is the hardware, Internet is the software.", "correct": false },
+      { "text": "Internet is used for gaming, WWW is used for browsing.", "correct": false }
+    ]
+  },
+  {
+    "question": "Which part of the email separates the username from the domain name?",
+    "answers": [
+      { "text": "The at symbol (@)", "correct": true },
+      { "text": "The dot (.)", "correct": false },
+      { "text": "The colon (:)", "correct": false },
+      { "text": "The dash (-)", "correct": false }
+    ]
+  },
+  {
+    "question": "What are cookies used for?",
+    "answers": [
+      { "text": "To store user preferences and session data on websites", "correct": true },
+      { "text": "To provide voice communication over the internet", "correct": false },
+      { "text": "To send emails between users", "correct": false },
+      { "text": "To back up files to a flash drive", "correct": false }
+    ]
+  },
+  {
+    "question": "Which part of the email allows the tagged person to be there as a ghost?",
+    "answers": [
+      { "text": "BCC (Blind Carbon Copy)", "correct": true },
+      { "text": "CC (Carbon Copy)", "correct": false },
+      { "text": "To (Main recipient)", "correct": false },
+      { "text": "Subject line", "correct": false }
+    ]
+  },
+  {
+    "question": "How long should a copyright period last?",
+    "answers": [
+      { "text": "The lifetime of the creator plus 70 years (in most countries)", "correct": true },
+      { "text": "Only while the work is online", "correct": false },
+      { "text": "Until the creator deletes the work", "correct": false },
+      { "text": "10 years after creation", "correct": false }
+    ]
+  },
+  {
+    "question": "What is meant by the term Virtual Community?",
+    "answers": [
+      { "text": "A group of people who interact through the internet or other digital means", "correct": true },
+      { "text": "A type of web browser", "correct": false },
+      { "text": "A shared office space", "correct": false },
+      { "text": "A physical gathering of people", "correct": false }
+    ]
+  },
+  {
+    "question": "What is the main function of a web browser?",
+    "answers": [
+      { "text": "To access and display web pages", "correct": true },
+      { "text": "To send and receive emails", "correct": false },
+      { "text": "To manage files on your computer", "correct": false },
+      { "text": "To edit documents", "correct": false }
+    ]
+  },
+  {
+    "question": "What does URL stand for?",
+    "answers": [
+      { "text": "Uniform Resource Locator", "correct": true },
+      { "text": "Universal Resource Link", "correct": false },
+      { "text": "Unique Resource Locator", "correct": false },
+      { "text": "Uniform Resource Link", "correct": false }
+    ]
+  },
+  {
+    "question": "Which of the following is NOT a type of malware?",
+    "answers": [
+      { "text": "Firewall", "correct": true },
+      { "text": "Virus", "correct": false },
+      { "text": "Phishing", "correct": false },
+      { "text": "Trojan Horse", "correct": false }
+    ]
+  },
+  {
+    "question": "What is phishing?",
+    "answers": [
+      { "text": "A cyber attack that tricks individuals into providing sensitive information", "correct": true },
+      { "text": "A method of fishing in the ocean", "correct": false },
+      { "text": "A type of computer virus", "correct": false },
+      { "text": "A way to speed up internet connection", "correct": false }
+    ]
+  },
+  {
+    "question": "Which of the following is a cloud storage service?",
+    "answers": [
+      { "text": "Google Drive", "correct": true },
+      { "text": "Microsoft Word", "correct": false },
+      { "text": "Adobe Acrobat", "correct": false },
+      { "text": "Mozilla Firefox", "correct": false }
+    ]
+  },
+  {
+    "question": "What does HTTP stand for?",
+    "answers": [
+      { "text": "HyperText Transfer Protocol", "correct": true },
+      { "text": "High Transfer Text Protocol", "correct": false },
+      { "text": "Hyperlink Text Transfer Protocol", "correct": false },
+      { "text": "High Tech Transfer Protocol", "correct": false }
+    ]
+  },
+  {
+    "question": "Which of the following is NOT a web browser?",
+    "answers": [
+      { "text": "Microsoft Word", "correct": true },
+      { "text": "Google Chrome", "correct": false },
+      { "text": "Mozilla Firefox", "correct": false },
+      { "text": "Safari", "correct": false }
+    ]
+  },
+  {
+    "question": "What is two-factor authentication (2FA)?",
+    "answers": [
+      { "text": "A security process that requires two forms of identification before granting access", "correct": true },
+      { "text": "A method of encrypting data", "correct": false },
+      { "text": "A type of firewall", "correct": false },
+      { "text": "A way to speed up internet connection", "correct": false }
+    ]
+  },
+  {
+    "question": "Which of the following is used to send out emails?",
+    "answers": [
+      { "text": "Email client (e.g., Microsoft Outlook, Gmail)", "correct": true },
+      { "text": "Operating system", "correct": false },
+      { "text": "Productivity application", "correct": false },
+      { "text": "Encryption tool", "correct": false }
+    ]
+  },
+  {
+    "question": "Which of the following is the protection of human creation or the creation of the mind?",
+    "answers": [
+      { "text": "Intellectual property", "correct": true },
+      { "text": "Copyright infringement", "correct": false },
+      { "text": "Internet forums", "correct": false },
+      { "text": "Cops", "correct": false }
+    ]
+  },
+  {
+    "question": "What is meant by encryption?",
+    "answers": [
+      { "text": "The process of converting data into a coded form to prevent unauthorized access", "correct": true },
+      { "text": "Operating system", "correct": false },
+      { "text": "Productivity application", "correct": false },
+      { "text": "Communication application", "correct": false }
+    ]
+  },
+  {
+    "question": "What is the purpose of the decrypting key?",
+    "answers": [
+      { "text": "To convert encrypted data back into its original readable form", "correct": true },
+      { "text": "Share video over a network", "correct": false },
+      { "text": "Make phone and video calls over the intranet", "correct": false },
+      { "text": "Download files from the internet", "correct": false }
+    ]
+  },
+  {
+    "question": "Which of the domains represents a geographic location?",
+    "answers": [
+      { "text": ".uk (United Kingdom)", "correct": true },
+      { "text": ".com (Commercial)", "correct": false },
+      { "text": ".edu (Education)", "correct": false },
+      { "text": ".org (Organization)", "correct": false }
+    ]
+  },
+  {
+    "question": "Which of the following domains represents a commercial website?",
+    "answers": [
+      { "text": ".com", "correct": true },
+      { "text": ".gov", "correct": false },
+      { "text": ".mil", "correct": false },
+      { "text": ".edu", "correct": false }
+    ]
+  },
+  {
+    "question": "Which best describes a VPN?",
+    "answers": [
+      { "text": "Service that allows safe and private internet access", "correct": true },
+      { "text": "Global network of connected computers", "correct": false },
+      { "text": "Private network accessible to employees", "correct": false },
+      { "text": "Service that allows safe and private intranet access", "correct": false }
+    ]
+  },
+  {
+    "question": "Which one of the virtual communities below is used for professional networking?",
+    "answers": [
+      { "text": "LinkedIn", "correct": true },
+      { "text": "Instagram", "correct": false },
+      { "text": "YouTube", "correct": false },
+      { "text": "Reddit", "correct": false }
+    ]
+  },
+  {
+    "question": "Which of the following virtual communities is primarily used for sharing photos and videos?",
+    "answers": [
+      { "text": "Instagram", "correct": true },
+      { "text": "LinkedIn", "correct": false },
+      { "text": "Twitter (X)", "correct": false },
+      { "text": "Quora", "correct": false }
+    ]
+  },
+  {
+    "question": "Which one of the virtual communities below is used for microblogging and social networking?",
+    "answers": [
+      { "text": "Twitter (X)", "correct": true },
+      { "text": "YouTube", "correct": false },
+      { "text": "LinkedIn", "correct": false },
+      { "text": "Facebook Marketplace", "correct": false }
+    ]
+  },
+  {
+    "question": "Which one of the virtual communities is used for gaming and live streaming?",
+    "answers": [
+      { "text": "Twitch", "correct": true },
+      { "text": "Reddit", "correct": false },
+      { "text": "Instagram", "correct": false },
+      { "text": "Pinterest", "correct": false }
+    ]
+  },
+  {
+    "question": "Which one of the virtual communities below is used for video sharing and content creation?",
+    "answers": [
+      { "text": "YouTube", "correct": true },
+      { "text": "LinkedIn", "correct": false },
+      { "text": "Twitter (X)", "correct": false },
+      { "text": "Reddit", "correct": false }
+    ]
+  }
+];
+
+// Fisher-Yates shuffle algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+// Shuffle answers for each question
+questions.forEach(q => shuffleArray(q.answers));
+
+// Output result
+console.log(questions);
+
+
+
+const questionElement = document.getElementById('question');
+const answersContainer = document.getElementById('answers-buttons');
+const nextButton = document.getElementById('next-btn');
+
+let currentQuestionIndex = 0;
+let score = 0;
+let answered = false;
+let userName = "";
+let userEmail = "";
+
+// Start button event
+document.getElementById('start-btn').addEventListener('click', () => {
+    const nameInput = document.getElementById('user-name').value.trim();
+    const emailInput = document.getElementById('user-email').value.trim();
+
+    if (!nameInput || !emailInput) {
+        alert("Please enter your name and email before starting.");
+        return;
+    }
+
+    userName = nameInput;
+    userEmail = emailInput;
+
+    document.getElementById('user-form').classList.add('hidden');
+    document.getElementById('quiz-section').classList.remove('hidden');
+    startQuiz();
+});
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    showQuestion();
+}
+
+function showQuestion() {
+    resetState();
+    answered = false;
+    const currentQuestion = questions[currentQuestionIndex];
+    questionElement.textContent = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+
+    if (currentQuestion.input) {
+        // Create input box for user answer
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = 'answer-input';
+        input.placeholder = 'Type your answer here';
+
+        // Add event listener for pressing Enter
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                processInputAnswer();
+            }
+        });
+
+        answersContainer.appendChild(input);
+        nextButton.style.display = 'none';
+
+        // Enable Next button only when user types something
+        input.addEventListener('input', () => {
+            if (input.value.trim() !== '') {
+                nextButton.style.display = 'block';
+            } else {
+                nextButton.style.display = 'none';
+            }
+        });
+    } else {
+        // Create answer buttons
+        currentQuestion.answers.forEach(answer => {
+            const btn = document.createElement("button");
+            btn.textContent = answer.text;
+            btn.classList.add("btn");
+            if (answer.correct) {
+                btn.dataset.correct = "true";
+            }
+            btn.addEventListener('click', selectAnswer);
+            answersContainer.appendChild(btn);
+        });
+        nextButton.style.display = 'none'; // hide Next until answer
+    }
+}
+
+function resetState() {
+    nextButton.style.display = "none";
+    answersContainer.innerHTML = "";
+}
+
+// For multiple choice questions
+function selectAnswer(e) {
+    if (answered) return;
+    answered = true;
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct === "true";
+
+    if (correct) {
+        score++;
+        selectedButton.style.backgroundColor = "green";
+    } else {
+        selectedButton.style.backgroundColor = "red";
+    }
+
+    // Highlight correct answer
+    Array.from(answersContainer.children).forEach(btn => {
+        if (btn.dataset.correct === "true") {
+            btn.style.backgroundColor = "green";
+        }
+        btn.disabled = true;
+    });
+
+    nextButton.style.display = 'block';
+}
+
+// Handle answer for input questions
+function processInputAnswer() {
+    if (answered) return;
+    answered = true;
+    const inputEl = document.getElementById('answer-input');
+    const userInput = inputEl.value.trim();
+    if (!userInput) {
+        alert("Please type an answer");
+        answered = false;
+        return;
+    }
+    const currentQuestion = questions[currentQuestionIndex];
+    // Check against all acceptable answers (case-insensitive)
+    const normalizedInput = userInput.toLowerCase();
+    const isCorrect = currentQuestion.correctAnswers.some(ans => ans.toLowerCase() === normalizedInput);
+    if (isCorrect) {
+        score++;
+        inputEl.style.backgroundColor = "lightgreen";
+    } else {
+        inputEl.style.backgroundColor = "salmon";
+    }
+    inputEl.disabled = true;
+    nextButton.style.display = 'block';
+}
+
+// Next button event
+nextButton.addEventListener('click', () => {
+    if (questions[currentQuestionIndex].input && !answered) {
+        processInputAnswer();
+        return;
+    }
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        finishQuiz();
+    }
+});
+
+function finishQuiz() {
+    const resultText = `${userName}, you completed the quiz! Your score: ${score} / ${questions.length}`;
+    questionElement.textContent = resultText;
+    resetState();
+
+    // Send results via emailjs
+    emailjs.send("service_885i0iw", "template_3f7db48", {
+        to_email: "nkosi@inkcubeko.org.za",
+        message: resultText
+    });
+    emailjs.send("service_885i0iw", "template_3f7db48", {
+        to_email: userEmail,
+        message: resultText
+    }).then(() => {
+        alert("Results sent to you and the participant!");
+    }).catch((error) => {
+        alert("Error sending results: " + JSON.stringify(error));
+    });
+}
+</script>
+</body>
+</html>

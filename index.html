@@ -7,7 +7,7 @@
 
 <link rel="stylesheet" href="style.css" />
 
-<!-- EmailJS library -->
+<!-- EmailJS library --
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
   (function() {
@@ -50,249 +50,188 @@
 
 <script>
 const questions = [
+  [
   {
-    "question": "What does WWW stand for?",
+    "question": "Which of the following is an input device?",
     "answers": [
-      { "text": "World Wide Web", "correct": true },
-      { "text": "Wireless Web Wide", "correct": false },
-      { "text": "Wide Web World", "correct": false },
-      { "text": "Web World Window", "correct": false }
+      { "text": "Keyboard", "correct": true },
+      { "text": "Monitor", "correct": false },
+      { "text": "Printer", "correct": false },
+      { "text": "Speaker", "correct": false }
     ]
   },
   {
-    "question": "What is the difference between the Internet and the WWW?",
+    "question": "Which device is used to display information from the computer?",
     "answers": [
-      { "text": "The Internet is the network infrastructure; the WWW is a service on it.", "correct": true },
-      { "text": "They are exactly the same.", "correct": false },
-      { "text": "WWW is the hardware, Internet is the software.", "correct": false },
-      { "text": "Internet is used for gaming, WWW is used for browsing.", "correct": false }
+      { "text": "Monitor", "correct": true },
+      { "text": "Mouse", "correct": false },
+      { "text": "Keyboard", "correct": false },
+      { "text": "Scanner", "correct": false }
     ]
   },
   {
-    "question": "Which part of the email separates the username from the domain name?",
+    "question": "Which of the following is an output device?",
     "answers": [
-      { "text": "The at symbol (@)", "correct": true },
-      { "text": "The dot (.)", "correct": false },
-      { "text": "The colon (:)", "correct": false },
-      { "text": "The dash (-)", "correct": false }
+      { "text": "Printer", "correct": true },
+      { "text": "Microphone", "correct": false },
+      { "text": "Webcam", "correct": false },
+      { "text": "Keyboard", "correct": false }
     ]
   },
   {
-    "question": "What are cookies used for?",
+    "question": "What type of device is a mouse?",
     "answers": [
-      { "text": "To store user preferences and session data on websites", "correct": true },
-      { "text": "To provide voice communication over the internet", "correct": false },
-      { "text": "To send emails between users", "correct": false },
-      { "text": "To back up files to a flash drive", "correct": false }
+      { "text": "Input device", "correct": true },
+      { "text": "Output device", "correct": false },
+      { "text": "Storage device", "correct": false },
+      { "text": "Processing device", "correct": false }
     ]
   },
   {
-    "question": "Which part of the email allows the tagged person to be there as a ghost?",
+    "question": "Which device is used to record sound into the computer?",
     "answers": [
-      { "text": "BCC (Blind Carbon Copy)", "correct": true },
-      { "text": "CC (Carbon Copy)", "correct": false },
-      { "text": "To (Main recipient)", "correct": false },
-      { "text": "Subject line", "correct": false }
+      { "text": "Microphone", "correct": true },
+      { "text": "Speaker", "correct": false },
+      { "text": "Monitor", "correct": false },
+      { "text": "Projector", "correct": false }
     ]
   },
   {
-    "question": "How long should a copyright period last?",
+    "question": "A printer is used to produce hard copies of documents. This device is an example of a:",
     "answers": [
-      { "text": "The lifetime of the creator plus 70 years (in most countries)", "correct": true },
-      { "text": "Only while the work is online", "correct": false },
-      { "text": "Until the creator deletes the work", "correct": false },
-      { "text": "10 years after creation", "correct": false }
+      { "text": "Output device", "correct": true },
+      { "text": "Input device", "correct": false },
+      { "text": "Storage device", "correct": false },
+      { "text": "Processing device", "correct": false }
     ]
   },
   {
-    "question": "What is meant by the term Virtual Community?",
+    "question": "A scanner is mainly used to capture images or text into the computer. This makes it a:",
     "answers": [
-      { "text": "A group of people who interact through the internet or other digital means", "correct": true },
-      { "text": "A type of web browser", "correct": false },
-      { "text": "A shared office space", "correct": false },
-      { "text": "A physical gathering of people", "correct": false }
+      { "text": "Input device", "correct": true },
+      { "text": "Output device", "correct": false },
+      { "text": "Communication device", "correct": false },
+      { "text": "Power device", "correct": false }
     ]
   },
   {
-    "question": "What is the main function of a web browser?",
+    "question": "Which port is commonly used to connect a keyboard or mouse?",
     "answers": [
-      { "text": "To access and display web pages", "correct": true },
-      { "text": "To send and receive emails", "correct": false },
-      { "text": "To manage files on your computer", "correct": false },
-      { "text": "To edit documents", "correct": false }
+      { "text": "USB port", "correct": true },
+      { "text": "HDMI port", "correct": false },
+      { "text": "VGA port", "correct": false },
+      { "text": "Ethernet port", "correct": false }
     ]
   },
   {
-    "question": "What does URL stand for?",
+    "question": "The HDMI port is mainly used for:",
     "answers": [
-      { "text": "Uniform Resource Locator", "correct": true },
-      { "text": "Universal Resource Link", "correct": false },
-      { "text": "Unique Resource Locator", "correct": false },
-      { "text": "Uniform Resource Link", "correct": false }
+      { "text": "Transmitting audio and video signals", "correct": true },
+      { "text": "Connecting to the internet", "correct": false },
+      { "text": "Charging devices only", "correct": false },
+      { "text": "Connecting a keyboard", "correct": false }
     ]
   },
   {
-    "question": "Which of the following is NOT a type of malware?",
+    "question": "Which port is used to connect a computer to a monitor or projector using older technology?",
     "answers": [
-      { "text": "Firewall", "correct": true },
-      { "text": "Virus", "correct": false },
-      { "text": "Phishing", "correct": false },
-      { "text": "Trojan Horse", "correct": false }
+      { "text": "VGA port", "correct": true },
+      { "text": "USB port", "correct": false },
+      { "text": "HDMI port", "correct": false },
+      { "text": "Audio jack", "correct": false }
     ]
   },
   {
-    "question": "What is phishing?",
+    "question": "An Ethernet port allows a computer to:",
     "answers": [
-      { "text": "A cyber attack that tricks individuals into providing sensitive information", "correct": true },
-      { "text": "A method of fishing in the ocean", "correct": false },
-      { "text": "A type of computer virus", "correct": false },
-      { "text": "A way to speed up internet connection", "correct": false }
+      { "text": "Connect to a network or the internet", "correct": true },
+      { "text": "Play sound", "correct": false },
+      { "text": "Display video", "correct": false },
+      { "text": "Print documents", "correct": false }
     ]
   },
   {
-    "question": "Which of the following is a cloud storage service?",
+    "question": "Which port is used to connect headphones or external speakers?",
     "answers": [
-      { "text": "Google Drive", "correct": true },
-      { "text": "Microsoft Word", "correct": false },
-      { "text": "Adobe Acrobat", "correct": false },
-      { "text": "Mozilla Firefox", "correct": false }
+      { "text": "Audio jack", "correct": true },
+      { "text": "USB port", "correct": false },
+      { "text": "VGA port", "correct": false },
+      { "text": "Ethernet port", "correct": false }
     ]
   },
   {
-    "question": "What does HTTP stand for?",
+    "question": "A USB port can be used to connect which of the following devices?",
     "answers": [
-      { "text": "HyperText Transfer Protocol", "correct": true },
-      { "text": "High Transfer Text Protocol", "correct": false },
-      { "text": "Hyperlink Text Transfer Protocol", "correct": false },
-      { "text": "High Tech Transfer Protocol", "correct": false }
+      { "text": "Flash drive", "correct": true },
+      { "text": "Monitor only", "correct": false },
+      { "text": "Internet cable only", "correct": false },
+      { "text": "Projector only", "correct": false }
     ]
   },
   {
-    "question": "Which of the following is NOT a web browser?",
+    "question": "Which statement best describes an input device?",
     "answers": [
-      { "text": "Microsoft Word", "correct": true },
-      { "text": "Google Chrome", "correct": false },
-      { "text": "Mozilla Firefox", "correct": false },
-      { "text": "Safari", "correct": false }
+      { "text": "It sends data into the computer", "correct": true },
+      { "text": "It displays information from the computer", "correct": false },
+      { "text": "It stores data permanently", "correct": false },
+      { "text": "It processes instructions", "correct": false }
     ]
   },
   {
-    "question": "What is two-factor authentication (2FA)?",
+    "question": "Which statement best describes an output device?",
     "answers": [
-      { "text": "A security process that requires two forms of identification before granting access", "correct": true },
-      { "text": "A method of encrypting data", "correct": false },
-      { "text": "A type of firewall", "correct": false },
-      { "text": "A way to speed up internet connection", "correct": false }
+      { "text": "It shows results from the computer", "correct": true },
+      { "text": "It sends commands to the computer", "correct": false },
+      { "text": "It connects the computer to the internet", "correct": false },
+      { "text": "It powers the computer", "correct": false }
     ]
   },
   {
-    "question": "Which of the following is used to send out emails?",
+    "question": "A touchscreen allows users to give input and receive output. This means it is:",
     "answers": [
-      { "text": "Email client (e.g., Microsoft Outlook, Gmail)", "correct": true },
-      { "text": "Operating system", "correct": false },
-      { "text": "Productivity application", "correct": false },
-      { "text": "Encryption tool", "correct": false }
+      { "text": "Both an input and output device", "correct": true },
+      { "text": "Only an input device", "correct": false },
+      { "text": "Only an output device", "correct": false },
+      { "text": "A storage device", "correct": false }
     ]
   },
   {
-    "question": "Which of the following is the protection of human creation or the creation of the mind?",
+    "question": "Which port is MOST suitable for high-quality video and sound?",
     "answers": [
-      { "text": "Intellectual property", "correct": true },
-      { "text": "Copyright infringement", "correct": false },
-      { "text": "Internet forums", "correct": false },
-      { "text": "Cops", "correct": false }
+      { "text": "HDMI port", "correct": true },
+      { "text": "VGA port", "correct": false },
+      { "text": "USB port", "correct": false },
+      { "text": "Ethernet port", "correct": false }
     ]
   },
   {
-    "question": "What is meant by encryption?",
+    "question": "Which device uses a USB port to store and transfer data?",
     "answers": [
-      { "text": "The process of converting data into a coded form to prevent unauthorized access", "correct": true },
-      { "text": "Operating system", "correct": false },
-      { "text": "Productivity application", "correct": false },
-      { "text": "Communication application", "correct": false }
+      { "text": "Flash drive", "correct": true },
+      { "text": "Monitor", "correct": false },
+      { "text": "Speaker", "correct": false },
+      { "text": "Projector", "correct": false }
     ]
   },
   {
-    "question": "What is the purpose of the decrypting key?",
+    "question": "Speakers are best described as:",
     "answers": [
-      { "text": "To convert encrypted data back into its original readable form", "correct": true },
-      { "text": "Share video over a network", "correct": false },
-      { "text": "Make phone and video calls over the intranet", "correct": false },
-      { "text": "Download files from the internet", "correct": false }
+      { "text": "Output devices", "correct": true },
+      { "text": "Input devices", "correct": false },
+      { "text": "Storage devices", "correct": false },
+      { "text": "Processing devices", "correct": false }
     ]
   },
   {
-    "question": "Which of the domains represents a geographic location?",
+    "question": "Which of the following connects a computer to wired internet?",
     "answers": [
-      { "text": ".uk (United Kingdom)", "correct": true },
-      { "text": ".com (Commercial)", "correct": false },
-      { "text": ".edu (Education)", "correct": false },
-      { "text": ".org (Organization)", "correct": false }
-    ]
-  },
-  {
-    "question": "Which of the following domains represents a commercial website?",
-    "answers": [
-      { "text": ".com", "correct": true },
-      { "text": ".gov", "correct": false },
-      { "text": ".mil", "correct": false },
-      { "text": ".edu", "correct": false }
-    ]
-  },
-  {
-    "question": "Which best describes a VPN?",
-    "answers": [
-      { "text": "Service that allows safe and private internet access", "correct": true },
-      { "text": "Global network of connected computers", "correct": false },
-      { "text": "Private network accessible to employees", "correct": false },
-      { "text": "Service that allows safe and private intranet access", "correct": false }
-    ]
-  },
-  {
-    "question": "Which one of the virtual communities below is used for professional networking?",
-    "answers": [
-      { "text": "LinkedIn", "correct": true },
-      { "text": "Instagram", "correct": false },
-      { "text": "YouTube", "correct": false },
-      { "text": "Reddit", "correct": false }
-    ]
-  },
-  {
-    "question": "Which of the following virtual communities is primarily used for sharing photos and videos?",
-    "answers": [
-      { "text": "Instagram", "correct": true },
-      { "text": "LinkedIn", "correct": false },
-      { "text": "Twitter (X)", "correct": false },
-      { "text": "Quora", "correct": false }
-    ]
-  },
-  {
-    "question": "Which one of the virtual communities below is used for microblogging and social networking?",
-    "answers": [
-      { "text": "Twitter (X)", "correct": true },
-      { "text": "YouTube", "correct": false },
-      { "text": "LinkedIn", "correct": false },
-      { "text": "Facebook Marketplace", "correct": false }
-    ]
-  },
-  {
-    "question": "Which one of the virtual communities is used for gaming and live streaming?",
-    "answers": [
-      { "text": "Twitch", "correct": true },
-      { "text": "Reddit", "correct": false },
-      { "text": "Instagram", "correct": false },
-      { "text": "Pinterest", "correct": false }
-    ]
-  },
-  {
-    "question": "Which one of the virtual communities below is used for video sharing and content creation?",
-    "answers": [
-      { "text": "YouTube", "correct": true },
-      { "text": "LinkedIn", "correct": false },
-      { "text": "Twitter (X)", "correct": false },
-      { "text": "Reddit", "correct": false }
+      { "text": "Ethernet port", "correct": true },
+      { "text": "USB port", "correct": false },
+      { "text": "HDMI port", "correct": false },
+      { "text": "Audio jack", "correct": false }
     ]
   }
+]
 ];
 
 // Fisher-Yates shuffle algorithm
@@ -483,3 +422,4 @@ function finishQuiz() {
 </script>
 </body>
 </html>
+

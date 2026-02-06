@@ -3,238 +3,297 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Online Assentials</title>
+<title>Online Essentials Quiz</title>
 
-<link rel="stylesheet" href="style.css" />
-
-<!-- EmailJS library --
+<!-- EmailJS library -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("K050wx49i_RQzr5oT");
-  })();
-</script>
+
 <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    .app { max-width: 500px; margin: auto; }
-    .hidden { display: none; }
-    .btn { display: block; margin: 8px 0; padding: 10px; cursor: pointer; }
-    input[type="text"], input[type="email"] { width: 100%; padding: 8px; margin: 5px 0; }
-    #start-btn { margin-top: 10px; }
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f4f4f4;
+  }
+  .app {
+    max-width: 550px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .hidden {
+    display: none;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+  input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px;
+  }
 </style>
 </head>
-<body> 
+
+<body>
 <div class="app">
 
-    <!-- User Info Form -->
-    <div id="user-form">
-        <h1>Enter Your Details</h1>
-        <label>Name:</label>
-        <input type="text" id="user-name" placeholder="Your name" required>
-        <label>Email:</label>
-        <input type="email" id="user-email" placeholder="Your email" required>
-        <button id="start-btn" class="btn">Start Quiz</button>
-    </div>
+  <!-- User Info Form -->
+  <div id="user-form">
+    <h1>Enter Your Details</h1>
+    <label>Name:</label>
+    <input type="text" id="user-name" placeholder="Your name" required>
 
-    <!-- Quiz Section -->
-    <div id="quiz-section" class="hidden">
-        <h1>Computer Essentials</h1>
-        <div class="quiz">
-            <h2 id="question">Question goes here</h2>
-            <div id="answers-buttons"></div>
-            <button id="next-btn" style="display:none;">Next</button>
-        </div>
-    </div>
+    <label>Email:</label>
+    <input type="email" id="user-email" placeholder="Your email" required>
+
+    <button id="start-btn" class="btn">Start Quiz</button>
+  </div>
+
+  <!-- Quiz Section -->
+  <div id="quiz-section" class="hidden">
+    <h1>Computer Essentials</h1>
+    <h2 id="question"></h2>
+    <div id="answers-buttons"></div>
+    <button id="next-btn" class="btn hidden">Next</button>
+  </div>
 
 </div>
 
 <script>
+/* ================= EMAILJS INIT ================= */
+(function () {
+  emailjs.init("K050wx49i_RQzr5oT");
+})();
+
+/* ================= QUESTIONS ================= */
 const questions = [
-  [
   {
-    "question": "Which of the following is an input device?",
-    "answers": [
-      { "text": "Keyboard", "correct": true },
-      { "text": "Monitor", "correct": false },
-      { "text": "Printer", "correct": false },
-      { "text": "Speaker", "correct": false }
+    question: "Which of the following is an input device?",
+    answers: [
+      { text: "Keyboard", correct: true },
+      { text: "Monitor", correct: false },
+      { text: "Printer", correct: false },
+      { text: "Speaker", correct: false }
     ]
   },
   {
-    "question": "Which device is used to display information from the computer?",
-    "answers": [
-      { "text": "Monitor", "correct": true },
-      { "text": "Mouse", "correct": false },
-      { "text": "Keyboard", "correct": false },
-      { "text": "Scanner", "correct": false }
+    question: "Which device is used to display information from the computer?",
+    answers: [
+      { text: "Monitor", correct: true },
+      { text: "Mouse", correct: false },
+      { text: "Keyboard", correct: false },
+      { text: "Scanner", correct: false }
     ]
   },
   {
-    "question": "Which of the following is an output device?",
-    "answers": [
-      { "text": "Printer", "correct": true },
-      { "text": "Microphone", "correct": false },
-      { "text": "Webcam", "correct": false },
-      { "text": "Keyboard", "correct": false }
+    question: "Which port is MOST suitable for high-quality video and sound?",
+    answers: [
+      { text: "HDMI port", correct: true },
+      { text: "VGA port", correct: false },
+      { text: "USB port", correct: false },
+      { text: "Ethernet port", correct: false }
     ]
   },
   {
-    "question": "What type of device is a mouse?",
-    "answers": [
-      { "text": "Input device", "correct": true },
-      { "text": "Output device", "correct": false },
-      { "text": "Storage device", "correct": false },
-      { "text": "Processing device", "correct": false }
+    question: "Which of the following connects a computer to wired internet?",
+    answers: [
+      { text: "Ethernet port", correct: true },
+      { text: "USB port", correct: false },
+      { text: "HDMI port", correct: false },
+      { text: "Audio jack", correct: false }
+    ]
+  },
+
+  {
+    question: "Which of the following is an input device?",
+    answers: [
+      { text: "Keyboard",correct: true },
+      { text: "Monitor", correct: false },
+      { text: "Printer", correct: false },
+      { text: "Speaker", correct: false }
     ]
   },
   {
-    "question": "Which device is used to record sound into the computer?",
-    "answers": [
-      { "text": "Microphone", "correct": true },
-      { "text": "Speaker", "correct": false },
-      { "text": "Monitor", "correct": false },
-      { "text": "Projector", "correct": false }
+    question: "Which device is used to display information from the computer?",
+    answers: [
+      { text: "Monitor", correct: true },
+      { text: "Mouse", correct: false },
+      { text: "Keyboard",correct: false },
+      { text: "Scanner", correct: false }
     ]
   },
   {
-    "question": "A printer is used to produce hard copies of documents. This device is an example of a:",
-    "answers": [
-      { "text": "Output device", "correct": true },
-      { "text": "Input device", "correct": false },
-      { "text": "Storage device", "correct": false },
-      { "text": "Processing device", "correct": false }
+    question: "Which of the following is an output device?",
+    answers: [
+      { text: "Printer", correct: true },
+      { text: "Microphone", correct: false },
+      { text: "Webcam", correct: false },
+      { text: "Keyboard", correct: false }
     ]
   },
   {
-    "question": "A scanner is mainly used to capture images or text into the computer. This makes it a:",
-    "answers": [
-      { "text": "Input device", "correct": true },
-      { "text": "Output device", "correct": false },
-      { "text": "Communication device", "correct": false },
-      { "text": "Power device", "correct": false }
+    question: "What type of device is a mouse?",
+    answers: [
+      { text: "Input device", correct: true },
+      { text: "Output device", correct: false },
+      { text: "Storage device", correct: false },
+      { text: "Processing device", correct: false }
     ]
   },
   {
-    "question": "Which port is commonly used to connect a keyboard or mouse?",
-    "answers": [
-      { "text": "USB port", "correct": true },
-      { "text": "HDMI port", "correct": false },
-      { "text": "VGA port", "correct": false },
-      { "text": "Ethernet port", "correct": false }
+    question: "Which device is used to record sound into the computer?",
+    answers: [
+      { text: "Microphone", correct: true },
+      { text: "Speaker", correct: false },
+      { text: "Monitor", correct: false },
+      { text: "Projector", correct: false }
     ]
   },
   {
-    "question": "The HDMI port is mainly used for:",
-    "answers": [
-      { "text": "Transmitting audio and video signals", "correct": true },
-      { "text": "Connecting to the internet", "correct": false },
-      { "text": "Charging devices only", "correct": false },
-      { "text": "Connecting a keyboard", "correct": false }
+    question: "A printer is used to produce hard copies of documents. This device is an example of a:",
+    answers: [
+      { text: "Output device", correct: true },
+      { text: "Input device", correct: false },
+      { text: "Storage device", correct: false },
+      { text: "Processing device", correct: false }
     ]
   },
   {
-    "question": "Which port is used to connect a computer to a monitor or projector using older technology?",
-    "answers": [
-      { "text": "VGA port", "correct": true },
-      { "text": "USB port", "correct": false },
-      { "text": "HDMI port", "correct": false },
-      { "text": "Audio jack", "correct": false }
+    question: "A scanner is mainly used to capture images or text into the computer. This makes it a:",
+    answers: [
+      { text: "Input device", correct: true },
+      { text: "Output device", correct: false },
+      { text: "Communication device", correct: false },
+      { text: "Power device", correct: false }
     ]
   },
   {
-    "question": "An Ethernet port allows a computer to:",
-    "answers": [
-      { "text": "Connect to a network or the internet", "correct": true },
-      { "text": "Play sound", "correct": false },
-      { "text": "Display video", "correct": false },
-      { "text": "Print documents", "correct": false }
+    question: "Which port is commonly used to connect a keyboard or mouse?",
+    answers: [
+      { text: "USB port", correct: true },
+      { text: "HDMI port", correct: false },
+      { text: "VGA port", correct: false },
+      { text: "Ethernet port", correct: false }
     ]
   },
   {
-    "question": "Which port is used to connect headphones or external speakers?",
-    "answers": [
-      { "text": "Audio jack", "correct": true },
-      { "text": "USB port", "correct": false },
-      { "text": "VGA port", "correct": false },
-      { "text": "Ethernet port", "correct": false }
+    question: "The HDMI port is mainly used for:",
+    answers: [
+      { text: "Transmitting audio and video signals", correct: true },
+      { text: "Connecting to the internet", correct: false },
+      { text: "Charging devices only", correct: false },
+      { text: "Connecting a keyboard", correct: false }
     ]
   },
   {
-    "question": "A USB port can be used to connect which of the following devices?",
-    "answers": [
-      { "text": "Flash drive", "correct": true },
-      { "text": "Monitor only", "correct": false },
-      { "text": "Internet cable only", "correct": false },
-      { "text": "Projector only", "correct": false }
+    question: "Which port is used to connect a computer to a monitor or projector using older technology?",
+    answers: [
+      { text: "VGA port", correct: true },
+      { text: "USB port", correct: false },
+      { text: "HDMI port", correct: false },
+      { text: "Audio jack", correct: false }
     ]
   },
   {
-    "question": "Which statement best describes an input device?",
-    "answers": [
-      { "text": "It sends data into the computer", "correct": true },
-      { "text": "It displays information from the computer", "correct": false },
-      { "text": "It stores data permanently", "correct": false },
-      { "text": "It processes instructions", "correct": false }
+    question: "An Ethernet port allows a computer to:",
+    answers: [
+      { text: "Connect to a network or the internet", correct: true },
+      { text: "Play sound", correct: false },
+      { text: "Display video", correct: false },
+      { text: "Print documents", correct: false }
     ]
   },
   {
-    "question": "Which statement best describes an output device?",
-    "answers": [
-      { "text": "It shows results from the computer", "correct": true },
-      { "text": "It sends commands to the computer", "correct": false },
-      { "text": "It connects the computer to the internet", "correct": false },
-      { "text": "It powers the computer", "correct": false }
+    question: "Which port is used to connect headphones or external speakers?",
+    answers: [
+      { text: "Audio jack", correct: true },
+      { text: "USB port", correct: false },
+      { text: "VGA port", correct: false },
+      { text: "Ethernet port", correct: false }
     ]
   },
   {
-    "question": "A touchscreen allows users to give input and receive output. This means it is:",
-    "answers": [
-      { "text": "Both an input and output device", "correct": true },
-      { "text": "Only an input device", "correct": false },
-      { "text": "Only an output device", "correct": false },
-      { "text": "A storage device", "correct": false }
+    question: "A USB port can be used to connect which of the following devices?",
+    answers: [
+      { text: "Flash drive", correct: true },
+      { text: "Monitor only", correct: false },
+      { text: "Internet cable only", correct: false },
+      { text: "Projector only", correct: false }
     ]
   },
   {
-    "question": "Which port is MOST suitable for high-quality video and sound?",
-    "answers": [
-      { "text": "HDMI port", "correct": true },
-      { "text": "VGA port", "correct": false },
-      { "text": "USB port", "correct": false },
-      { "text": "Ethernet port", "correct": false }
+    question: "Which statement best describes an input device?",
+    answers: [
+      { text: "It sends data into the computer", correct: true },
+      { text: "It displays information from the computer", correct: false },
+      { text: "It stores data permanently", correct: false },
+      { text: "It processes instructions", correct: false }
     ]
   },
   {
-    "question": "Which device uses a USB port to store and transfer data?",
-    "answers": [
-      { "text": "Flash drive", "correct": true },
-      { "text": "Monitor", "correct": false },
-      { "text": "Speaker", "correct": false },
-      { "text": "Projector", "correct": false }
+    question: "Which statement best describes an output device?",
+    answers: [
+      { text: "It shows results from the computer", correct: true },
+      { text: "It sends commands to the computer", correct: false },
+      { text: "It connects the computer to the internet", correct: false },
+      { text: "It powers the computer", correct: false }
     ]
   },
   {
-    "question": "Speakers are best described as:",
-    "answers": [
-      { "text": "Output devices", "correct": true },
-      { "text": "Input devices", "correct": false },
-      { "text": "Storage devices", "correct": false },
-      { "text": "Processing devices", "correct": false }
+    question: "A touchscreen allows users to give input and receive output. This means it is:",
+    answers: [
+      { text: "Both an input and output device", correct: true },
+      { text: "Only an input device", correct: false },
+      { text: "Only an output device", correct: false },
+      { text: "A storage device", correct: false }
     ]
   },
   {
-    "question": "Which of the following connects a computer to wired internet?",
-    "answers": [
-      { "text": "Ethernet port", "correct": true },
-      { "text": "USB port", "correct": false },
-      { "text": "HDMI port", "correct": false },
-      { "text": "Audio jack", "correct": false }
+    question: "Which port is MOST suitable for high-quality video and sound?",
+    answers: [
+      { text: "HDMI port", correct: true },
+      { text: "VGA port", correct: false },
+      { text: "USB port", correct: false },
+      { text: "Ethernet port", correct: false }
+    ]
+  },
+  {
+    question: "Which device uses a USB port to store and transfer data?",
+    answers: [
+      { text: "Flash drive", correct: true },
+      { text: "Monitor", correct: false },
+      { text: "Speaker", correct: false },
+      { text: "Projector", correct: false }
+    ]
+  },
+  {
+    question: "Speakers are best described as:",
+    answers: [
+      { text: "Output devices", correct: true },
+      { text: "Input devices", correct: false },
+      { text: "Storage devices", correct: false },
+      { text: "Processing devices", correct: false }
+    ]
+  },
+  {
+    question: "Which of the following connects a computer to wired internet?",
+    answers: [
+      { text: "Ethernet port", correct: true },
+      { text: "USB port", correct: false },
+      { text: "HDMI port", correct: false },
+      { text: "Audio jack", correct: false }
     ]
   }
-]
+
+
 ];
 
-// Fisher-Yates shuffle algorithm
+/* ================= SHUFFLE ================= */
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -242,17 +301,14 @@ function shuffleArray(array) {
   }
 }
 
-// Shuffle answers for each question
+// Shuffle questions & answers
+shuffleArray(questions);
 questions.forEach(q => shuffleArray(q.answers));
 
-// Output result
-console.log(questions);
-
-
-
-const questionElement = document.getElementById('question');
-const answersContainer = document.getElementById('answers-buttons');
-const nextButton = document.getElementById('next-btn');
+/* ================= QUIZ LOGIC ================= */
+const questionElement = document.getElementById("question");
+const answersContainer = document.getElementById("answers-buttons");
+const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -260,166 +316,84 @@ let answered = false;
 let userName = "";
 let userEmail = "";
 
-// Start button event
-document.getElementById('start-btn').addEventListener('click', () => {
-    const nameInput = document.getElementById('user-name').value.trim();
-    const emailInput = document.getElementById('user-email').value.trim();
+document.getElementById("start-btn").addEventListener("click", () => {
+  userName = document.getElementById("user-name").value.trim();
+  userEmail = document.getElementById("user-email").value.trim();
 
-    if (!nameInput || !emailInput) {
-        alert("Please enter your name and email before starting.");
-        return;
-    }
+  if (!userName || !userEmail) {
+    alert("Please enter your name and email.");
+    return;
+  }
 
-    userName = nameInput;
-    userEmail = emailInput;
+  document.getElementById("user-form").classList.add("hidden");
+  document.getElementById("quiz-section").classList.remove("hidden");
 
-    document.getElementById('user-form').classList.add('hidden');
-    document.getElementById('quiz-section').classList.remove('hidden');
-    startQuiz();
+  startQuiz();
 });
 
 function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    showQuestion();
+  currentQuestionIndex = 0;
+  score = 0;
+  showQuestion();
 }
 
 function showQuestion() {
-    resetState();
-    answered = false;
-    const currentQuestion = questions[currentQuestionIndex];
-    questionElement.textContent = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+  resetState();
+  answered = false;
 
-    if (currentQuestion.input) {
-        // Create input box for user answer
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.id = 'answer-input';
-        input.placeholder = 'Type your answer here';
+  const currentQuestion = questions[currentQuestionIndex];
+  questionElement.textContent = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
 
-        // Add event listener for pressing Enter
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                processInputAnswer();
-            }
-        });
-
-        answersContainer.appendChild(input);
-        nextButton.style.display = 'none';
-
-        // Enable Next button only when user types something
-        input.addEventListener('input', () => {
-            if (input.value.trim() !== '') {
-                nextButton.style.display = 'block';
-            } else {
-                nextButton.style.display = 'none';
-            }
-        });
-    } else {
-        // Create answer buttons
-        currentQuestion.answers.forEach(answer => {
-            const btn = document.createElement("button");
-            btn.textContent = answer.text;
-            btn.classList.add("btn");
-            if (answer.correct) {
-                btn.dataset.correct = "true";
-            }
-            btn.addEventListener('click', selectAnswer);
-            answersContainer.appendChild(btn);
-        });
-        nextButton.style.display = 'none'; // hide Next until answer
-    }
+  currentQuestion.answers.forEach(answer => {
+    const button = document.createElement("button");
+    button.textContent = answer.text;
+    button.classList.add("btn");
+    if (answer.correct) button.dataset.correct = "true";
+    button.addEventListener("click", selectAnswer);
+    answersContainer.appendChild(button);
+  });
 }
 
 function resetState() {
-    nextButton.style.display = "none";
-    answersContainer.innerHTML = "";
+  answersContainer.innerHTML = "";
+  nextButton.classList.add("hidden");
 }
 
-// For multiple choice questions
 function selectAnswer(e) {
-    if (answered) return;
-    answered = true;
-    const selectedButton = e.target;
-    const correct = selectedButton.dataset.correct === "true";
+  if (answered) return;
+  answered = true;
 
-    if (correct) {
-        score++;
-        selectedButton.style.backgroundColor = "green";
-    } else {
-        selectedButton.style.backgroundColor = "red";
+  const selectedButton = e.target;
+  const isCorrect = selectedButton.dataset.correct === "true";
+
+  if (isCorrect) score++;
+
+  Array.from(answersContainer.children).forEach(btn => {
+    btn.disabled = true;
+    if (btn.dataset.correct === "true") {
+      btn.style.backgroundColor = "green";
+    } else if (btn === selectedButton) {
+      btn.style.backgroundColor = "red";
     }
+  });
 
-    // Highlight correct answer
-    Array.from(answersContainer.children).forEach(btn => {
-        if (btn.dataset.correct === "true") {
-            btn.style.backgroundColor = "green";
-        }
-        btn.disabled = true;
-    });
-
-    nextButton.style.display = 'block';
+  nextButton.classList.remove("hidden");
 }
 
-// Handle answer for input questions
-function processInputAnswer() {
-    if (answered) return;
-    answered = true;
-    const inputEl = document.getElementById('answer-input');
-    const userInput = inputEl.value.trim();
-    if (!userInput) {
-        alert("Please type an answer");
-        answered = false;
-        return;
-    }
-    const currentQuestion = questions[currentQuestionIndex];
-    // Check against all acceptable answers (case-insensitive)
-    const normalizedInput = userInput.toLowerCase();
-    const isCorrect = currentQuestion.correctAnswers.some(ans => ans.toLowerCase() === normalizedInput);
-    if (isCorrect) {
-        score++;
-        inputEl.style.backgroundColor = "lightgreen";
-    } else {
-        inputEl.style.backgroundColor = "salmon";
-    }
-    inputEl.disabled = true;
-    nextButton.style.display = 'block';
-}
-
-// Next button event
-nextButton.addEventListener('click', () => {
-    if (questions[currentQuestionIndex].input && !answered) {
-        processInputAnswer();
-        return;
-    }
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        finishQuiz();
-    }
+nextButton.addEventListener("click", () => {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    finishQuiz();
+  }
 });
 
 function finishQuiz() {
-    const resultText = `${userName}, you completed the quiz! Your score: ${score} / ${questions.length}`;
-    questionElement.textContent = resultText;
-    resetState();
-
-    // Send results via emailjs
-    emailjs.send("service_885i0iw", "template_3f7db48", {
-        to_email: "nkosi@inkcubeko.org.za",
-        message: resultText
-    });
-    emailjs.send("service_885i0iw", "template_3f7db48", {
-        to_email: userEmail,
-        message: resultText
-    }).then(() => {
-        alert("Results sent to you and the participant!");
-    }).catch((error) => {
-        alert("Error sending results: " + JSON.stringify(error));
-    });
+  questionElement.textContent =
+    `${userName}, you completed the quiz! Your score is ${score} out of ${questions.length}.`;
+  resetState();
 }
 </script>
 </body>
 </html>
-

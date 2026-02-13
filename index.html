@@ -71,228 +71,278 @@
 })();
 
 /* ================= QUESTIONS ================= */
-const questions = [
+const questions =[
   {
-    question: "Which of the following is an input device?",
-    answers: [
-      { text: "Keyboard", correct: true },
-      { text: "Monitor", correct: false },
-      { text: "Printer", correct: false },
-      { text: "Speaker", correct: false }
+    "question": "1. What is an input device?",
+    "answers": [
+      { "text": "A device that displays information", "correct": false },
+      { "text": "A device used to enter data into a computer", "correct": true },
+      { "text": "A device that stores files", "correct": false },
+      { "text": "A device that prints documents", "correct": false }
     ]
   },
   {
-    question: "Which device is used to display information from the computer?",
-    answers: [
-      { text: "Monitor", correct: true },
-      { text: "Mouse", correct: false },
-      { text: "Keyboard", correct: false },
-      { text: "Scanner", correct: false }
+    "question": "2. Which of the following is an input device?",
+    "answers": [
+      { "text": "Monitor", "correct": false },
+      { "text": "Keyboard", "correct": true },
+      { "text": "Printer", "correct": false },
+      { "text": "Speaker", "correct": false }
     ]
   },
   {
-    question: "Which port is MOST suitable for high-quality video and sound?",
-    answers: [
-      { text: "HDMI port", correct: true },
-      { text: "VGA port", correct: false },
-      { text: "USB port", correct: false },
-      { text: "Ethernet port", correct: false }
+    "question": "3. Which device is used to move the cursor on the screen?",
+    "answers": [
+      { "text": "Mouse", "correct": true },
+      { "text": "Monitor", "correct": false },
+      { "text": "Printer", "correct": false },
+      { "text": "Projector", "correct": false }
     ]
   },
   {
-    question: "Which of the following connects a computer to wired internet?",
-    answers: [
-      { text: "Ethernet port", correct: true },
-      { text: "USB port", correct: false },
-      { text: "HDMI port", correct: false },
-      { text: "Audio jack", correct: false }
-    ]
-  },
-
-  {
-    question: "Which of the following is an input device?",
-    answers: [
-      { text: "Keyboard",correct: true },
-      { text: "Monitor", correct: false },
-      { text: "Printer", correct: false },
-      { text: "Speaker", correct: false }
+    "question": "4. What is an output device?",
+    "answers": [
+      { "text": "A device that enters data", "correct": false },
+      { "text": "A device that shows results from the computer", "correct": true },
+      { "text": "A storage device", "correct": false },
+      { "text": "A processing unit", "correct": false }
     ]
   },
   {
-    question: "Which device is used to display information from the computer?",
-    answers: [
-      { text: "Monitor", correct: true },
-      { text: "Mouse", correct: false },
-      { text: "Keyboard",correct: false },
-      { text: "Scanner", correct: false }
+    "question": "5. Which of the following is an output device?",
+    "answers": [
+      { "text": "Scanner", "correct": false },
+      { "text": "Monitor", "correct": true },
+      { "text": "Keyboard", "correct": false },
+      { "text": "Webcam", "correct": false }
     ]
   },
   {
-    question: "Which of the following is an output device?",
-    answers: [
-      { text: "Printer", correct: true },
-      { text: "Microphone", correct: false },
-      { text: "Webcam", correct: false },
-      { text: "Keyboard", correct: false }
+    "question": "6. Which device prints documents on paper?",
+    "answers": [
+      { "text": "Printer", "correct": true },
+      { "text": "Scanner", "correct": false },
+      { "text": "Mouse", "correct": false },
+      { "text": "Keyboard", "correct": false }
     ]
   },
   {
-    question: "What type of device is a mouse?",
-    answers: [
-      { text: "Input device", correct: true },
-      { text: "Output device", correct: false },
-      { text: "Storage device", correct: false },
-      { text: "Processing device", correct: false }
+    "question": "7. What is hardware?",
+    "answers": [
+      { "text": "Programs installed on a computer", "correct": false },
+      { "text": "Physical parts of a computer", "correct": true },
+      { "text": "Internet connection", "correct": false },
+      { "text": "Computer passwords", "correct": false }
     ]
   },
   {
-    question: "Which device is used to record sound into the computer?",
-    answers: [
-      { text: "Microphone", correct: true },
-      { text: "Speaker", correct: false },
-      { text: "Monitor", correct: false },
-      { text: "Projector", correct: false }
+    "question": "8. Which of the following is hardware?",
+    "answers": [
+      { "text": "Microsoft Word", "correct": false },
+      { "text": "Operating System", "correct": false },
+      { "text": "CPU", "correct": true },
+      { "text": "Web Browser", "correct": false }
     ]
   },
   {
-    question: "A printer is used to produce hard copies of documents. This device is an example of a:",
-    answers: [
-      { text: "Output device", correct: true },
-      { text: "Input device", correct: false },
-      { text: "Storage device", correct: false },
-      { text: "Processing device", correct: false }
+    "question": "9. What does CPU stand for?",
+    "answers": [
+      { "text": "Central Process Unit", "correct": false },
+      { "text": "Central Processing Unit", "correct": true },
+      { "text": "Computer Personal Unit", "correct": false },
+      { "text": "Control Program Utility", "correct": false }
     ]
   },
   {
-    question: "A scanner is mainly used to capture images or text into the computer. This makes it a:",
-    answers: [
-      { text: "Input device", correct: true },
-      { text: "Output device", correct: false },
-      { text: "Communication device", correct: false },
-      { text: "Power device", correct: false }
+    "question": "10. What is the function of the CPU?",
+    "answers": [
+      { "text": "Display images", "correct": false },
+      { "text": "Print documents", "correct": false },
+      { "text": "Process data and instructions", "correct": true },
+      { "text": "Store paper files", "correct": false }
     ]
   },
   {
-    question: "Which port is commonly used to connect a keyboard or mouse?",
-    answers: [
-      { text: "USB port", correct: true },
-      { text: "HDMI port", correct: false },
-      { text: "VGA port", correct: false },
-      { text: "Ethernet port", correct: false }
+    "question": "11. Which device is used to scan documents?",
+    "answers": [
+      { "text": "Scanner", "correct": true },
+      { "text": "Monitor", "correct": false },
+      { "text": "Speaker", "correct": false },
+      { "text": "Projector", "correct": false }
     ]
   },
   {
-    question: "The HDMI port is mainly used for:",
-    answers: [
-      { text: "Transmitting audio and video signals", correct: true },
-      { text: "Connecting to the internet", correct: false },
-      { text: "Charging devices only", correct: false },
-      { text: "Connecting a keyboard", correct: false }
+    "question": "12. Which device is used for audio output?",
+    "answers": [
+      { "text": "Microphone", "correct": false },
+      { "text": "Speaker", "correct": true },
+      { "text": "Keyboard", "correct": false },
+      { "text": "Mouse", "correct": false }
     ]
   },
   {
-    question: "Which port is used to connect a computer to a monitor or projector using older technology?",
-    answers: [
-      { text: "VGA port", correct: true },
-      { text: "USB port", correct: false },
-      { text: "HDMI port", correct: false },
-      { text: "Audio jack", correct: false }
+    "question": "13. What is RAM?",
+    "answers": [
+      { "text": "Permanent storage", "correct": false },
+      { "text": "Temporary memory used by the computer", "correct": true },
+      { "text": "An output device", "correct": false },
+      { "text": "An input device", "correct": false }
     ]
   },
   {
-    question: "An Ethernet port allows a computer to:",
-    answers: [
-      { text: "Connect to a network or the internet", correct: true },
-      { text: "Play sound", correct: false },
-      { text: "Display video", correct: false },
-      { text: "Print documents", correct: false }
+    "question": "14. Which device is used to capture sound?",
+    "answers": [
+      { "text": "Speaker", "correct": false },
+      { "text": "Microphone", "correct": true },
+      { "text": "Monitor", "correct": false },
+      { "text": "Printer", "correct": false }
     ]
   },
   {
-    question: "Which port is used to connect headphones or external speakers?",
-    answers: [
-      { text: "Audio jack", correct: true },
-      { text: "USB port", correct: false },
-      { text: "VGA port", correct: false },
-      { text: "Ethernet port", correct: false }
+    "question": "15. Which is NOT an input device?",
+    "answers": [
+      { "text": "Keyboard", "correct": false },
+      { "text": "Mouse", "correct": false },
+      { "text": "Printer", "correct": true },
+      { "text": "Scanner", "correct": false }
     ]
   },
   {
-    question: "A USB port can be used to connect which of the following devices?",
-    answers: [
-      { text: "Flash drive", correct: true },
-      { text: "Monitor only", correct: false },
-      { text: "Internet cable only", correct: false },
-      { text: "Projector only", correct: false }
+    "question": "16. What is the main function of a monitor?",
+    "answers": [
+      { "text": "Enter data", "correct": false },
+      { "text": "Display information", "correct": true },
+      { "text": "Print documents", "correct": false },
+      { "text": "Store data", "correct": false }
     ]
   },
   {
-    question: "Which statement best describes an input device?",
-    answers: [
-      { text: "It sends data into the computer", correct: true },
-      { text: "It displays information from the computer", correct: false },
-      { text: "It stores data permanently", correct: false },
-      { text: "It processes instructions", correct: false }
+    "question": "17. What is storage hardware?",
+    "answers": [
+      { "text": "Devices used to save data", "correct": true },
+      { "text": "Devices used to display data", "correct": false },
+      { "text": "Devices used to print", "correct": false },
+      { "text": "Devices used to type", "correct": false }
     ]
   },
   {
-    question: "Which statement best describes an output device?",
-    answers: [
-      { text: "It shows results from the computer", correct: true },
-      { text: "It sends commands to the computer", correct: false },
-      { text: "It connects the computer to the internet", correct: false },
-      { text: "It powers the computer", correct: false }
+    "question": "18. Which is an example of storage hardware?",
+    "answers": [
+      { "text": "Hard drive", "correct": true },
+      { "text": "Monitor", "correct": false },
+      { "text": "Speaker", "correct": false },
+      { "text": "Mouse", "correct": false }
     ]
   },
   {
-    question: "A touchscreen allows users to give input and receive output. This means it is:",
-    answers: [
-      { text: "Both an input and output device", correct: true },
-      { text: "Only an input device", correct: false },
-      { text: "Only an output device", correct: false },
-      { text: "A storage device", correct: false }
+    "question": "19. What is the function of a keyboard?",
+    "answers": [
+      { "text": "Display images", "correct": false },
+      { "text": "Enter text and data", "correct": true },
+      { "text": "Print files", "correct": false },
+      { "text": "Store programs", "correct": false }
     ]
   },
   {
-    question: "Which port is MOST suitable for high-quality video and sound?",
-    answers: [
-      { text: "HDMI port", correct: true },
-      { text: "VGA port", correct: false },
-      { text: "USB port", correct: false },
-      { text: "Ethernet port", correct: false }
+    "question": "20. What is the information processing cycle?",
+    "answers": [
+      { "text": "Input → Process → Output", "correct": true },
+      { "text": "Output → Input → Store", "correct": false },
+      { "text": "Process → Input → Output", "correct": false },
+      { "text": "Store → Process → Input", "correct": false }
     ]
   },
   {
-    question: "Which device uses a USB port to store and transfer data?",
-    answers: [
-      { text: "Flash drive", correct: true },
-      { text: "Monitor", correct: false },
-      { text: "Speaker", correct: false },
-      { text: "Projector", correct: false }
+    "question": "21. What is an example of input in a calculator?",
+    "answers": [
+      { "text": "Pressing numbers", "correct": true },
+      { "text": "Displaying answer", "correct": false },
+      { "text": "Printing receipt", "correct": false },
+      { "text": "Saving memory", "correct": false }
     ]
   },
   {
-    question: "Speakers are best described as:",
-    answers: [
-      { text: "Output devices", correct: true },
-      { text: "Input devices", correct: false },
-      { text: "Storage devices", correct: false },
-      { text: "Processing devices", correct: false }
+    "question": "22. What is the output of a printer?",
+    "answers": [
+      { "text": "Digital file", "correct": false },
+      { "text": "Printed paper document", "correct": true },
+      { "text": "Typed text", "correct": false },
+      { "text": "Stored memory", "correct": false }
     ]
   },
   {
-    question: "Which of the following connects a computer to wired internet?",
-    answers: [
-      { text: "Ethernet port", correct: true },
-      { text: "USB port", correct: false },
-      { text: "HDMI port", correct: false },
-      { text: "Audio jack", correct: false }
+    "question": "23. Which device combines input and output?",
+    "answers": [
+      { "text": "Touchscreen", "correct": true },
+      { "text": "Keyboard", "correct": false },
+      { "text": "Speaker", "correct": false },
+      { "text": "Printer", "correct": false }
+    ]
+  },
+  {
+    "question": "24. What does a webcam do?",
+    "answers": [
+      { "text": "Outputs sound", "correct": false },
+      { "text": "Inputs video", "correct": true },
+      { "text": "Stores data", "correct": false },
+      { "text": "Prints images", "correct": false }
+    ]
+  },
+  {
+    "question": "25. Which part stores data permanently?",
+    "answers": [
+      { "text": "RAM", "correct": false },
+      { "text": "Hard drive", "correct": true },
+      { "text": "CPU", "correct": false },
+      { "text": "Monitor", "correct": false }
+    ]
+  },
+  {
+    "question": "26. What is processing?",
+    "answers": [
+      { "text": "Entering data", "correct": false },
+      { "text": "Displaying results", "correct": false },
+      { "text": "Performing calculations on data", "correct": true },
+      { "text": "Printing files", "correct": false }
+    ]
+  },
+  {
+    "question": "27. Which is NOT hardware?",
+    "answers": [
+      { "text": "Mouse", "correct": false },
+      { "text": "Printer", "correct": false },
+      { "text": "Operating system", "correct": true },
+      { "text": "Keyboard", "correct": false }
+    ]
+  },
+  {
+    "question": "28. What is an example of output in a school?",
+    "answers": [
+      { "text": "Typing marks", "correct": false },
+      { "text": "Printed report card", "correct": true },
+      { "text": "Saving file", "correct": false },
+      { "text": "Entering data", "correct": false }
+    ]
+  },
+  {
+    "question": "29. What hardware is used to connect to the internet?",
+    "answers": [
+      { "text": "Router", "correct": true },
+      { "text": "Keyboard", "correct": false },
+      { "text": "Monitor", "correct": false },
+      { "text": "Printer", "correct": false }
+    ]
+  },
+  {
+    "question": "30. Which device displays large images on a wall?",
+    "answers": [
+      { "text": "Projector", "correct": true },
+      { "text": "Mouse", "correct": false },
+      { "text": "Scanner", "correct": false },
+      { "text": "Keyboard", "correct": false }
     ]
   }
-
-
 ];
-
 /* ================= SHUFFLE ================= */
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -397,3 +447,4 @@ function finishQuiz() {
 </script>
 </body>
 </html>
+
